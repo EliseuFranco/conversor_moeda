@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversor de Moedas</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="conteiner">
+      <section id="texto" class="content">
+        <div id="title">
+          <h1>COIN EXCHANGE</h1>
+        </div>
+        <div id="imagem">
+          <img src="imagens/coin-clatter.svg" alt="vetor_moedas" />
+        </div>
+        <div id="conteudo">
+          <p>Disfrute do conversor de medas e dê um power aos seus négocios</p>
+        </div>
+        <div id="social-media">
+          <ul>
+            <li>
+              <a href="https://github.com/EliseuFranco" target="_blank"
+                ><img src="imagens/github.svg" alt="github_icon" class="social"
+              /></a>
+            </li>
+            <li>
+              <a href="#"
+                ><img
+                  src="imagens/twitter.svg"
+                  alt="twitter_icon"
+                  class="social"
+              /></a>
+            </li>
+            <li>
+              <a href="#"
+                ><img
+                  src="imagens/instagram.svg"
+                  alt="instagram_icon"
+                  class="social"
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="conversor" class="content">
+        <div id="converter">
+          <h4>Escolha a moeda de origem e a moeda de destino</h4>
+          <div id="origem" class="moeda">
+            <p>Moeda origem</p>
+            <select name="origem" id="select_origem"></select>
+          </div>
+          <div id="destino" class="moeda">
+            <p>Moeda destino</p>
+            <select name="destino" id="select_destino"></select>
+          </div>
+          <div id="entrada">
+            <input
+              type="number"
+              id="moeda_origem"
+              placeholder="Insira o montante"
+              step="0.1"
+            />
+            <div id="resultado"></div>
+            <button>Converter</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p id="res"></p>
+      <p>Made by:Eliseu Samulolo</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
