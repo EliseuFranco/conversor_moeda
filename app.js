@@ -7,6 +7,7 @@ const moedas = [
   { value: "", label: "Selecione..." },
   { value: "USD", label: "Dólar americano" },
   { value: "AOA", label: "Kwanza angolano" },
+  { value: "EUR", label: "Euro" },
   { value: "GBP", label: "Libra Esterlina" },
   { value: "CAD", label: "Dólar Canadiano" },
   { value: "ZAR", label: "Rand Sul Africano" },
