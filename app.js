@@ -11,6 +11,7 @@ const moedas = [
   { value: "GBP", label: "Libra Esterlina" },
   { value: "CAD", label: "Dólar Canadiano" },
   { value: "ZAR", label: "Rand Sul Africano" },
+  { value: "XOF", label: "Franco CFA" },
 ];
 
 function verificar_taxa(source, target = 1) {
