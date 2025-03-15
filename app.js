@@ -10,8 +10,6 @@ const moedas = [
   { value: "GBP", label: "Libra Esterlina" },
   { value: "CAD", label: "Dólar Canadiano" },
   { value: "ZAR", label: "Rand Sul Africano" },
-  { value: "BTC", label: "Bitcoin" },
-  { value: "ETH", label: "Ethereum" },
 ];
 
 function verificar_taxa(source, target = 1) {
@@ -64,9 +62,7 @@ async function converter(origem, destino, valor) {
     return;
   } else {
     if (data[1] == 0) {
-      console.log("Entrei");
       source = data[0][`USD${destino}`]["bid"];
-      console.log(source);
       return valor * source;
     } else {
       source = data[0][`USD${origem}`]["bid"];
@@ -98,7 +94,6 @@ async function get_value() {
     alert("Insira o valor antes de converter");
   } else {
     const value = await converter(origem, destino, valor);
-    console.log(value);
     resultado.innerHTML = `${valor} ${origem} Equivalem hoje a ${value.toFixed(
       2
     )} ${destino}`;
