@@ -27,6 +27,8 @@ body {
   align-items: center;
   gap: 25px;
   flex-direction: column;
+
+  transition: ease-in 0.2s;
 }
 #texto {
   color: #fff;
@@ -118,6 +120,18 @@ button {
   border-radius: 10px;
   border: none;
   color: #fff;
+}
+#author {
+  text-align: center;
+  margin: auto;
+  padding: 10px;
+}
+#referencia > a {
+  text-decoration: none;
+  color: #8c52ff;
+}
+#referencia > a:hover {
+  opacity: 0.9;
 }
 button:hover {
   opacity: 0.9;

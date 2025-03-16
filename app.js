@@ -12,6 +12,7 @@ const moedas = [
   { value: "CAD", label: "Dólar Canadiano" },
   { value: "ZAR", label: "Rand Sul Africano" },
   { value: "XOF", label: "Franco CFA" },
+  { value: "BRL", label: "Real Brasileiro" },
 ];
 
 function verificar_taxa(source, target = 1) {
