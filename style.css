@@ -50,7 +50,7 @@ body {
 }
 ul {
   list-style: none;
-  columns: 3;
+  columns: 2;
 }
 
 /*Conversor*/
@@ -60,7 +60,7 @@ ul {
 #converter {
   background-color: #23075c;
   width: 80%;
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
 }
 .moeda {
@@ -124,7 +124,7 @@ button {
 #author {
   text-align: center;
   margin: auto;
-  padding: 10px;
+  font-size: 10px;
 }
 #referencia > a {
   text-decoration: none;
