@@ -17,6 +17,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none;
+}
 #title {
   margin-top: 20px;
 }
