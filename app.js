@@ -2,6 +2,7 @@ let select = document.querySelectorAll("select");
 let valor_origem = document.querySelector("#moeda_origem");
 const btn_converter = document.querySelector("button");
 const resultado = document.querySelector("#resultado");
+
 const api_key =
   "76bbefa8e7632369b8fa0b6101a7dee4dab9658e02dff35220d46f24207ece70";
 
@@ -59,7 +60,6 @@ async function get_rate(origem, destino) {
 async function converter(origem, destino, valor) {
   const data = await get_rate(origem, destino);
 
-  console.log(data);
   let target, source;
 
   if (!data) {
