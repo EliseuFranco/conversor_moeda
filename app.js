@@ -2,6 +2,8 @@ let select = document.querySelectorAll("select");
 let valor_origem = document.querySelector("#moeda_origem");
 const btn_converter = document.querySelector("button");
 const resultado = document.querySelector("#resultado");
+const api_key =
+  "76bbefa8e7632369b8fa0b6101a7dee4dab9658e02dff35220d46f24207ece70";
 
 const moedas = [
   { value: "", label: "Selecione..." },
@@ -23,7 +25,7 @@ function verificar_taxa(source, target = 1) {
 
 async function get_coin(origem, destino) {
   try {
-    const url = `https://economia.awesomeapi.com.br/last/${origem}-${destino}`;
+    const url = `https://economia.awesomeapi.com.br/json/last/${origem}-${destino}?token=${api_key}`;
     const resposta = await fetch(url);
     const data = await resposta.json();
 
