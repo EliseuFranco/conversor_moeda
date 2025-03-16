@@ -21,7 +21,7 @@ body {
   margin-top: 20px;
 }
 .content {
-  height: 50dvh;
+  height: 50%;
   display: flex;
   justify-content: space-around;
   align-items: center;
