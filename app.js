@@ -30,12 +30,14 @@ async function get_coin(origem, destino) {
     const resposta = await fetch(url);
     const data = await resposta.json();
 
-    if (data.status == 404) {
+    if (!data || data.status == 404) {
+      console.error("Erro ao buscar dados na API");
       return false;
     }
     return data;
   } catch (error) {
-    console.log(error);
+    console.log("Erro na requisição ", error);
+    return null;
   }
 }
 
@@ -43,49 +45,47 @@ async function get_rate(origem, destino) {
   if (origem != "USD" && destino != "USD") {
     const source = await get_coin("USD", origem);
     const target = await get_coin("USD", destino);
-
     return [source, target];
-  } else if (origem === "USD") {
-    source = await get_coin(origem, destino);
-
-    return [source, 0];
   } else {
-    source = await get_coin(destino, origem);
-    target = await get_coin("USD", destino);
+    const source =
+      origem === "USD"
+        ? await get_coin("USD", destino)
+        : await get_coin("USD", origem);
 
-    return [source, target];
+    return [source, null];
   }
 }
 
 async function converter(origem, destino, valor) {
   const data = await get_rate(origem, destino);
 
-  let target, source;
-
   if (!data) {
     alert("Impossível realizar a operação, tente novamente mais tarde");
     return;
+  }
+
+  let target, source;
+
+  if (data[1] === null) {
+    const source = data[0][`USD${origem === "USD" ? destino : origem}`]["bid"];
+    return origem === "USD" ? valor * source : valor / source;
   } else {
-    if (data[1] == 0) {
-      source = data[0][`USD${destino}`]["bid"];
-      return valor * source;
-    } else {
-      source = data[0][`USD${origem}`]["bid"];
-      target = data[1][`USD${destino}`]["bid"];
-      return valor / (source / target);
-    }
+    source = data[0][`USD${origem}`]["bid"];
+    target = data[1][`USD${destino}`]["bid"];
+
+    return valor / (source / target);
   }
 }
 
 function setCoin() {
-  for (let c in select) {
+  select.forEach((s) => {
     moedas.forEach((valor) => {
       const option = document.createElement("option");
       option.value = valor.value;
       option.textContent = valor.label;
-      select[c].appendChild(option);
+      s.appendChild(option);
     });
-  }
+  });
 }
 
 async function get_value() {
@@ -99,7 +99,7 @@ async function get_value() {
     alert("Insira o valor antes de converter");
   } else {
     const value = await converter(origem, destino, valor);
-    resultado.innerHTML = `${valor} ${origem} Equivalem hoje a ${value.toFixed(
+    resultado.textContent = `${valor} ${origem} equivalem hoje a ${value.toFixed(
       2
     )} ${destino}`;
   }
