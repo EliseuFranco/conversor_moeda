@@ -23,6 +23,9 @@ body {
 #title {
   margin-top: 20px;
 }
+#title > h1 {
+  text-transform: uppercase;
+}
 .content {
   height: 50%;
   display: flex;
