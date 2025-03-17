@@ -18,12 +18,6 @@ const moedas = [
   { value: "BRL", label: "Real Brasileiro" },
 ];
 
-function verificar_taxa(source, target = 1) {
-  if (!source || !target) {
-    return;
-  }
-}
-
 async function get_coin(origem, destino) {
   try {
     const url = `https://economia.awesomeapi.com.br/json/last/${origem}-${destino}?token=${api_key}`;
